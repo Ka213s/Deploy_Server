@@ -102,6 +102,47 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <div className="form_login">
+                
+                <div className="login">
+                    <p>ĐĂNG NHẬP</p>
+                    
+                    <div className="label">
+                        <Form.Floating className="mb-3">
+                            <Form.Control
+                                id="floatingInputCustom"
+                                type="email"
+                                placeholder="name@example.com"
+                            />
+                            <label htmlFor="floatingInputCustom">
+                                Email
+                            </label>
+                        </Form.Floating>
+                        <Form.Floating>
+                            <Form.Control
+                                id="floatingPasswordCustom"
+                                type="password"
+                                placeholder="Password"
+                            />
+                            <label htmlFor="floatingPasswordCustom">
+                                Mật khẩu
+                            </label>
+                        </Form.Floating>
+                    </div>
+                    
+                    <div className="btn-sign">
+                        <button type="button" class="btn btn-outline-success" onClick={handleLogin} disabled={loading}>{loading ? 'Đang đăng nhập...' : 'Đăng Nhập'}</button>
+                    </div>
+                    
+                    <div className="Load_create">
+                        <p>Bạn chưa có tài khoản?</p>
+                        <Link to="/Dangki">
+                            <a className='dangki'>Đăng ký</a>
+                        </Link>
+                    </div>
+                </div>
+                
+            </div>
 
             <ToastContainer /> {/* Container để hiển thị thông báo */}
         </div>
