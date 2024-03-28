@@ -17,7 +17,7 @@ export default function AdminDuyetdatcoc() {
                 const allRealEstateResponse = await CallApi.getAllRealEstate();
                 const realEstatesWithPerimeter = allRealEstateResponse.filter(re => re.perimeter && (re.status === 3 || re.status === 5));
                 setRealEstatesWithPerimeter(realEstatesWithPerimeter);
-                
+                console.log(realEstatesWithPerimeter);
                 const callDataRealEstateData = await CallApi.getAllRealEstate();
                 setRealEstates(callDataRealEstateData);
                 const callDataAllAccount = await CallApi.getAllAccount();
@@ -33,7 +33,13 @@ export default function AdminDuyetdatcoc() {
         const realEstate = realEstates.find(item => item.id === realEstateId);
         return realEstate ? realEstate.realestateName : 'Dữ liệu đang tải';
     };
-
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${day < 10 ? '0' + day : day}/${month < 10 ? '0' + month : month}/${year}`;
+    };
     const getUsernameByCustomerId = (customerId) => {
         const account = accounts.find(item => item.id === customerId);
         return account ? account.username : 'Dữ liệu đang tải';
@@ -42,7 +48,22 @@ export default function AdminDuyetdatcoc() {
     const handleRealEstateClick = (realEstateId) => {
         navigate(`/real-estate/${realEstateId}`);
     };
-
+    const getStatusString = (status) => {
+        switch (status) {
+            case 2:
+                return 'Đang mở bán';
+            case 3:
+                return 'Đang chờ phê duyệt cọc';
+            case 4:
+                return 'Phê duyệt cọc thành công';
+            case 5:
+                return 'Đang chờ phê duyệt bán';
+            case 6:
+                return 'Bán thành công';
+            default:
+                return 'Đang chờ cập nhật';
+        }
+    };
     return (
         <div className="admin-all-account">
             <div>
@@ -62,8 +83,8 @@ export default function AdminDuyetdatcoc() {
                             <th>STT</th>
                             <th>ID</th>
                             <th>Tên khách hàng</th>
-                            <th>Agency</th>
                             <th>Ngày cọc</th>
+                            <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,7 +93,8 @@ export default function AdminDuyetdatcoc() {
                                 <td>{index+1}</td>
                                 <td>{getRealEstateNameById(realEstate.id)}</td>
                                 <td onClick={() => handleRealEstateClick(realEstate.id)} style={{ cursor: 'pointer' }}>{getUsernameByCustomerId(parseInt(realEstate.perimeter))}</td>
-
+                                <td>{formatDate(realEstate.createdAt)}</td>
+                                <td>{getStatusString(realEstate.status)}</td>
                             </tr>
                         ))}
                     </tbody>

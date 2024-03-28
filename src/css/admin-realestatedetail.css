@@ -17,6 +17,9 @@
 
 .status {
     margin-bottom: 20px;
+    color: red;
+    font-weight: bold;
+    display: flex;
 }
 
 .image {

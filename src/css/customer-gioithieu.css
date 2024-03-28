@@ -56,7 +56,10 @@ body {
 }
 
 .title {
-    margin-top: -42px;
+    /* margin-top: -42px;
+     */
+     text-align: center;
+     font-weight: bold;
 }
 
 /* Style for the submit button */

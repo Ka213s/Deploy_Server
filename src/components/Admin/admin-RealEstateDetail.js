@@ -125,37 +125,44 @@ export default function AdminRealEstateDetail() {
 
     return (
         <div className="real-estate-detail-container">
-            <h2 className="title">Thông tin chi tiết Villa</h2>
-            <div className="status">Trạng thái: {getRealEstateStatusById(realEstate.status)}</div>
-            <p>ID: {realEstate.id}</p>
-            <p>Name: {realEstate.perimeter}</p>
-            <p>City: {foundLocation.city}</p>
-            <p>District: {foundLocation.district}</p>
-            <p>Ward: {foundLocation.ward}</p>
-            {realEstate.firebaseId && (
-                <div>
-                    <h4>Ảnh Đặt Cọc:</h4>
-                    <img src={realEstate.firebaseId} alt="Ảnh Đặt Cọc" style={{ maxWidth: '400px', height: 'auto' }} className="image" />
+            <div className='customer-info'>
+                <h2 className="title">Thông tin chi tiết Villa</h2>
+                <div style={{display:'flex'}}>
+                <div style={{marginRight:'5px'}}>Trạng thái: </div>
+                <div className="status"> {getRealEstateStatusById(realEstate.status)}</div>
                 </div>
-            )}
-            {realEstate.contract && (
-                <div>
-                    <h4>Ảnh Hợp Đồng:</h4>
-                    <img src={realEstate.contract} alt="Ảnh Hợp Đồng" style={{ maxWidth: '400px', height: 'auto' }} className="image" />
-                </div>
-            )}
+                {/* <p>ID: {realEstate.id}</p> */}
+                <p>Tên bất động sản: {realEstate.perimeter}</p>
+                <p>Tỉnh: {foundLocation.city}</p>
+                <p>Quận: {foundLocation.district}</p>
+                <p>Phường: {foundLocation.ward}</p>
+            </div>
+            
             {customerInfo && (
                 <div className="customer-info">
-                    <h3>Thông tin khách hàng:</h3>
-                    <p>Username: {customerInfo.username}</p>
-                    <p>Phone Number: {customerInfo.phoneNumber}</p>
+                    <h2 className="title">Thông tin khách hàng</h2>
+                    <p>Tên khách hàng: {customerInfo.username}</p>
+                    <p>Số điện thoại: {customerInfo.phoneNumber}</p>
                     <p>Email: {customerInfo.email}</p>
                 </div>
             )}
-            {realEstate.status !== 8 && (
-                <button onClick={handleReject} className="reject-button">Không Duyệt</button>
+            {realEstate.firebaseId && (
+                <div className='customer-info' style={{display:'flex', justifyContent:'center', flexDirection: 'column',alignItems:'center'}}>
+                    <h2 className="title">Ảnh Đặt Cọc</h2>
+                    <img src={realEstate.firebaseId} alt="Ảnh Đặt Cọc" style={{ maxWidth: '400px', height: 'auto', textAlign:'center' }} className="image" />
+                </div>
             )}
-            <button onClick={handleApprove} className="approve-button">Duyệt</button>
+            {realEstate.contract && (
+                <div className='customer-info' style={{display:'flex', justifyContent:'center', flexDirection: 'column',alignItems:'center'}}>
+                    <h2 className="title">Ảnh Hợp Đồng</h2>
+                    <img src={realEstate.contract} alt="Ảnh Hợp Đồng" style={{ maxWidth: '400px', height: 'auto', textAlign:'center' }} className="image" />
+                </div>
+            )}
+            
+            <div style={{textAlign:'center'}}>
+                <button onClick={handleReject} className="reject-button">Không Duyệt</button>
+                <button onClick={handleApprove} className="approve-button">Duyệt</button>
+            </div>
             <ToastContainer /> {/* Thông báo toàn cục */}
         </div>
     );

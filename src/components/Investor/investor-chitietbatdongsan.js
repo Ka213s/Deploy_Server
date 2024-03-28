@@ -58,7 +58,7 @@ export default function ThongTinBatDongSan() {
             <p><strong>Địa chỉ:</strong> {realEstateDetails.address}</p>
             <p><strong>Diện tích:</strong> {realEstateDetails.area}</p>
             <p><strong>Giá:</strong> {realEstateDetails.price}</p>
-            <p><strong>Số phòng:</strong> {realEstateDetails.numberOfRooms}</p>
+            <p><strong>Số phòng:</strong> {realEstateDetails.roomNumber}</p>
             <p><strong>Diện tích chiều dài:</strong> {realEstateDetails.length}</p>
             <p><strong>Diện tích chiều rộng:</strong> {realEstateDetails.width}</p>
             <h2>Thông tin vị trí</h2>
