@@ -22,6 +22,7 @@ export default function Footer() {
 
                     <div class="col-md-4 ft-icon">
                         <h5 class="text-uppercase fw-bold mb-4">THÔNG TIN LIÊN HỆ</h5>
+                        <hr className='divider' />
                         <p><i class="fas fa-home me-3"></i>
                             <a href='https://maps.app.goo.gl/HwkbvGvBCAJNbJ7JA'>Lô E2a-7, Đường D1, Long Thạnh Mỹ, TP. Thủ Đức, TP. Hồ Chí Minh</a>
                         </p>

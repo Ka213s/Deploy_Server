@@ -25,7 +25,7 @@ export default function Customertrangchubanvila() {
     const fetchData = async () => {
       try {
         const response = await CallApi.getAllRealEstate();
-        const RealEstate = response.filter(statusRealEstate => statusRealEstate.status ===2)
+        const RealEstate = response.filter(statusRealEstate => statusRealEstate.status === 2)
         setRealEstates(RealEstate);
         console.log("x", RealEstate)
         const locationResponse = await CallApi.getAllLocation();
@@ -96,7 +96,7 @@ export default function Customertrangchubanvila() {
   };
 
   return (
-    
+
     <div>
       <div className='search-home' style={{ justifyContent: "center", display: "flex" }}>
         {/* <div className='main-title1 col-md-6'>
