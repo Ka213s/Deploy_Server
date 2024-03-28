@@ -59,31 +59,35 @@
 .image-container1 {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
+    align-items: center;
+    /* Center horizontally */
+    justify-content: center;
+    /* Center vertically */
 }
 
-.hinhanh{
+.hinhanh {
     margin-left: 20px;
 }
-.sub-images  {
+
+.sub-images {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 10px; /* Adjust spacing between main image and sub-images */
+    margin-top: 10px;
+    /* Adjust spacing between main image and sub-images */
 }
 
 .sub-image {
-    margin-top: 50%;
-    width: calc(25% - 5px);
     /* Đặt kích thước nhỏ cho các hình ảnh còn lại và bố trí chúng theo hàng */
+    /* height: auto; */
+    max-width: 500px;
+    margin: 5px;
     height: auto;
+    text-Align: center;
 }
 
 .small-image {
-    max-width: 50%; /* Ensure the image fits within its container */
-    max-height: 50%; /* Ensure the image fits within its container */
-    display: block;
+    /* max-width: 50%; */
     margin-top: -120px;
     margin-left: 4px;
 }
@@ -98,16 +102,20 @@
     right: 0;
 }
 
-.prev-btn, .next-btn {
+.prev-btn,
+.next-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 40px; /* Adjust width as needed */
-    height: 40px; /* Adjust height as needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for buttons */
+    width: 40px;
+    /* Adjust width as needed */
+    height: 40px;
+    /* Adjust height as needed */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background for buttons */
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -185,7 +193,7 @@
 }
 
 
-.thongtinkhachdat{
+.thongtinkhachdat {
     margin-top: 20px;
 }
 
@@ -246,7 +254,8 @@ h3:first-of-type {
 /* Each column */
 .motabatdongsan,
 .motabatdongsan1 {
-    width: 48%; /* Adjust width to leave space for margins */
+    width: 48%;
+    /* Adjust width to leave space for margins */
 }
 
 /* Style for the table */
@@ -266,7 +275,8 @@ h3:first-of-type {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     font-size: 14px;
-    color: #333; /* Text color */
+    color: #333;
+    /* Text color */
     border: 1px solid #ccc;
     box-shadow: 0px 0px 10px 0px solid #ccc;
 }
@@ -274,20 +284,23 @@ h3:first-of-type {
 
 /* Alternate row color */
 .info-table tr:nth-child(even) {
-    background-color: #f9f9f9; /* Light gray background color */
+    background-color: #f9f9f9;
+    /* Light gray background color */
 }
 
 /* Hover effect for table rows */
 .info-table tr:hover {
-    background-color: #f0f0f0; /* Hover background color */
+    background-color: #f0f0f0;
+    /* Hover background color */
 }
 
 /* Adjust the style of the last row */
 .info-table tbody tr:last-child td {
-    border-bottom: none; /* Remove bottom border for the last row */
+    border-bottom: none;
+    /* Remove bottom border for the last row */
 }
 
-.motabatdongsan1{
+.motabatdongsan1 {
     margin-top: 10px;
-    
+
 }

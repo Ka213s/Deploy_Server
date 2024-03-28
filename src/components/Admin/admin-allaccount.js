@@ -45,49 +45,49 @@ export default function AdminAllAccount() {
     return (
         <div className="admin-all-account">
             <div>
-            <Adminmenu
-                userLoginBasicInformationDto={userLoginBasicInformationDto}
-                UserMenu={UserAdmin}             
-            />
+                <Adminmenu
+                    userLoginBasicInformationDto={userLoginBasicInformationDto}
+                    UserMenu={UserAdmin}
+                />
             </div>
             <div className='box-allaccount'>
-            <div className="account-list">
-                <h2 className="account-list-title">Tất Cả Tài Khoản</h2>
-                <div className="role-filter">
-                    <select className="role-filter-select" value={selectedRoleId} onChange={e => setSelectedRoleId(e.target.value)}>
-                        <option value="">Tất cả vai trò</option>
-                        {roleData.map(role => (
-                            <option key={role.id} value={role.id}>{role.roleName}</option>
-                        ))}
-                    </select>
-                </div>
-                <table className="account-table">
-                    <thead>
-                        <tr>
-                            <th className="account-table-header">ID</th>
-                            <th className="account-table-header">Họ và tên</th>
-                            <th className="account-table-header">Vai trò</th>
-                            <th className="account-table-header">Email</th>
-                            <th className="account-table-header">Số điện thoại</th>
-                            <th className="account-table-header">Địa chỉ</th>
-                            <th className="account-table-header">Ngày tạo</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredAccounts.map(account => (
-                            <tr key={account.id}>
-                                <td>{account.id}</td>
-                                <td>{account.username}</td>
-                                <td>{getRoleNameByRoleId(account.roleId)}</td>
-                                <td>{account.email}</td>
-                                <td>{account.phoneNumber}</td>
-                                <td>{account.address}</td>
-                                <td>{formatDate(account.createAt)}</td>
+                <div className="account-list">
+                    <h2 className="account-list-title">Tất Cả Tài Khoản</h2>
+                    <div className="role-filter">
+                        <select className="role-filter-select" value={selectedRoleId} onChange={e => setSelectedRoleId(e.target.value)}>
+                            <option value="">Tất cả vai trò</option>
+                            {roleData.map(role => (
+                                <option key={role.id} value={role.id}>{role.roleName}</option>
+                            ))}
+                        </select>
+                    </div>
+                    <table className="account-table">
+                        <thead>
+                            <tr>
+                                <th className="account-table-header">ID</th>
+                                <th className="account-table-header">Họ và tên</th>
+                                <th className="account-table-header">Vai trò</th>
+                                <th className="account-table-header">Email</th>
+                                <th className="account-table-header">Số điện thoại</th>
+                                <th className="account-table-header">Địa chỉ</th>
+                                <th className="account-table-header">Ngày tạo</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            {filteredAccounts.map(account => (
+                                <tr key={account.id}>
+                                    <td>{account.id}</td>
+                                    <td>{account.username}</td>
+                                    <td>{getRoleNameByRoleId(account.roleId)}</td>
+                                    <td>{account.email}</td>
+                                    <td>{account.phoneNumber}</td>
+                                    <td>{account.address}</td>
+                                    <td>{formatDate(account.createAt)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

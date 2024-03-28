@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CallApi from '../CallApi';
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function AdminRealEstateDetail() {
     const { id } = useParams();
-
+    const navigate = useNavigate(); 
     const [realEstate, setRealEstate] = useState(null);
     const [foundLocation, setFoundLocation] = useState(null);
     const [customerInfo, setCustomerInfo] = useState(null);
@@ -61,6 +61,7 @@ export default function AdminRealEstateDetail() {
 
             console.log('Response:', response.data);
             toast.success("Duyệt Thành Công !"); // Thông báo duyệt thành công
+            navigate("/admin-duyetdatcoc");
         } catch (error) {
             console.error('Error approving real estate:', error);
             toast.error("Error approving real estate."); // Thông báo lỗi khi duyệt bất động sản
@@ -95,7 +96,7 @@ export default function AdminRealEstateDetail() {
             console.log('Response:', response.data);
             toast.success("Real estate rejected successfully."); // Thông báo không duyệt thành công
             // Xử lý response ở đây nếu cần
-
+            navigate("/admin-duyetdatcoc");
             console.log('Từ chối duyệt thành công');
             // Thực hiện các hành động sau khi không duyệt thành công
         } catch (error) {

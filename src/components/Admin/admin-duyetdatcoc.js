@@ -93,7 +93,7 @@ export default function AdminDuyetdatcoc() {
                                 <td>{index+1}</td>
                                 <td>{getRealEstateNameById(realEstate.id)}</td>
                                 <td onClick={() => handleRealEstateClick(realEstate.id)} style={{ cursor: 'pointer' }}>{getUsernameByCustomerId(parseInt(realEstate.perimeter))}</td>
-                                <td>{formatDate(realEstate.createdAt)}</td>
+                                <td>{formatDate(realEstate.updateAt)}</td>
                                 <td>{getStatusString(realEstate.status)}</td>
                             </tr>
                         ))}

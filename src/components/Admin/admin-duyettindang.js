@@ -11,7 +11,7 @@ const statusOptions = [
 ];
 
 export default function Agencyduyettindang() {
-    
+
     const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
     const [realEstates, setRealEstates] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -81,29 +81,29 @@ export default function Agencyduyettindang() {
             const realEstateToUpdate = await getRealEstateDetails(realEstateId);
             console.log("Real estate details before status change:");
             console.log(realEstateToUpdate);
-    
+
             // Update the local state
             setRealEstates(prevRealEstates => prevRealEstates.map(realEstate =>
                 realEstate.id === realEstateId ? { ...realEstate, status: newStatus } : realEstate));
-    
+
             // Prepare the updated data
             const updatedData = { ...realEstateToUpdate, status: newStatus };
             console.log('Updating status to', newStatus, 'for real estate ID:', realEstateId);
-    
+
             // API call to update the status in the backend
             await axios.put(`http://swprealestatev2-001-site1.etempurl.com/api/invester/updatePostById/${realEstateId}`, updatedData);
-    
+
             // Update unsaved changes
             setUnsavedChanges(prevUnsavedChanges => ({
                 ...prevUnsavedChanges,
                 [realEstateId]: updatedData
             }));
-    
+
             // Add real estate ID to unsaved list if not already present
             if (!unsavedEstateIds.includes(realEstateId)) {
                 setUnsavedEstateIds(prevIds => [...prevIds, realEstateId]);
             }
-    
+
             // Success toast
             toast.success('Status update successful!');
         } catch (error) {
@@ -111,12 +111,12 @@ export default function Agencyduyettindang() {
             toast.error('Failed to update status. Please try again later!');
         }
     };
-    
+
     // Handle delete by setting status to 0
     const handleDelete = async (realEstateId) => {
         await updateStatus(realEstateId, 0);
     };
-    
+
     // Handle status change for other statuses
     const handleStatusChange = async (event, realEstateId) => {
         const newStatus = event.target.value;
@@ -163,31 +163,35 @@ export default function Agencyduyettindang() {
 
     return (
         <div className="admin-all-account">
-        <Adminmenu
-            userLoginBasicInformationDto={userLoginBasicInformationDto}
-            UserMenu={UserAdmin}
-        />
-            <div className='container'>
-                <div className='col-md-9 danhsachbdscanduyet'>
-                    
-                    <h2 style={{textAlign:'center'}}> Danh sách bất động sản cần được duyệt</h2>
+            <div>
+                <Adminmenu
+                    userLoginBasicInformationDto={userLoginBasicInformationDto}
+                    UserMenu={UserAdmin}
+                />
+            </div>
+            <div className='box-allaccount'>
+                <div className=''>
+
+                    <h2 style={{ textAlign: 'center' }}> Danh sách bất động sản cần được duyệt</h2>
                     <input
                         type="text"
                         placeholder="Nhập tên bất động sản để lọc"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <div className="table-container">
-                        <table className="table">
+                    <div className="account-list">
+                        <table>
                             <thead>
                                 <tr>
-                                    <th onClick={() => handleNavigateAndSendId('')} style={{ cursor: 'pointer' }}>Tên bất động sản</th>
+                                    <th>STT</th>
+                                    <th>Tên bất động sản</th>
                                     <th>Trạng thái</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {filteredRealEstates.map(realEstate => (
-                                    <tr key={realEstate.id} className='danhsachbdscanduyettheobds'>
+                                {filteredRealEstates.map((realEstate,index) => (
+                                    <tr key={realEstate.id}>
+                                        <td>{index+1}</td>
                                         <td onClick={() => handleNavigateAndSendId(realEstate.id)} style={{ cursor: 'pointer' }}>{realEstate.realestateName}</td>
                                         <td>
                                             <select className='luachon' value={realEstate.status} onChange={(event) => handleStatusChange(event, realEstate.id)}>
