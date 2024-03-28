@@ -12,7 +12,7 @@ export default function AdminDetailBookingAgen() {
         const fetchData = async () => {
             try {
                 const getAllReservations = await CallApi.getAllReservations();
-                const getAgenId = getAllReservations.filter(reservation => reservation.status === 1 && reservation.agencyId === getAgencyId);
+                const getAgenId = getAllReservations.filter(reservation => reservation.status === 2 && reservation.agencyId === getAgencyId);
                 setBookReservation(getAgenId);
                 const callDataRealEstateData = await CallApi.getAllRealEstate();
                 setRealEstates(callDataRealEstateData);

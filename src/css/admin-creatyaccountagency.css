@@ -57,3 +57,26 @@
     cursor: pointer;
     transition: background-color 0.3s;
 }
+.admin-container {
+    position: relative; /* Cần phải đặt vị trí của container cha */
+    display: flex;
+}
+
+.admin-container-main {
+    text-align: center;
+    width: 40%;
+    position: absolute;
+    top: 35%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column; /* Đảm bảo các phần tử con được sắp xếp dọc */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+  
+}
+
+.admin-container-main-part1 {
+    width: 80%;
+   
+}

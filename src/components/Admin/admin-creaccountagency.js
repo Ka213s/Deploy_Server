@@ -73,88 +73,91 @@ export default function AdminCreaccountagency() {
     return (
         <div >
             <ToastContainer /> {/* Container để hiển thị thông báo */}
-            <div className="admin-all-account">
+
+            <div className="admin-container">
                 <Adminmenu
                     userLoginBasicInformationDto={userLoginBasicInformationDto}
                     UserMenu={UserAdmin}
                 />
-                <div>
-                    <h2 style={{ fontWeight: "bold" }}>Đăng Kí Tài Khoản cho Agency</h2>
-                    <form onSubmit={handleSubmit}>
-                
-                        <Form.Floating>
-                            <Form.Control
-                                id="floatingPasswordCustom"
-                                type="text"
-                                placeholder="Họ và Tên"
-                                name="taiKhoan" // Đặt thuộc tính name
-                                value={formData.taiKhoan}
-                                onChange={handleChange}
-                            />
-                            <label htmlFor="floatingPasswordCustom">
-                                Họ và Tên
-                            </label>
-                        </Form.Floating>
-                        <Form.Floating>
-                            <Form.Control
-                                id="floatingPasswordCustom"
-                                type="password"
-                                name="matKhau"
-                                placeholder="Mật khẩu"
-                                value={formData.matKhau} onChange={handleChange}
-                            />
-                            <label htmlFor="floatingPasswordCustom">
-                                Mật khẩu
-                            </label>
-                        </Form.Floating>
 
-                        <Form.Floating>
-                            <Form.Control
-                                id="floatingPasswordCustom"
-                                type="password"                         
-                                placeholder="Mật khẩu"
-                                name="xacNhanMatKhau" value={formData.xacNhanMatKhau} onChange={handleChange}
-                            />
-                            <label htmlFor="floatingPasswordCustom">
-                                Xác nhận mật khẩu
-                            </label>
-                        </Form.Floating>
-                
-                        <Form.Floating>
-                            <Form.Control
-                                id="floatingPasswordCustom"
-                                type="tel"                         
-                                placeholder="Mật khẩu"
-                                name="soDienThoai" value={formData.soDienThoai} onChange={handleChange}
-                            />
-                            <label htmlFor="floatingPasswordCustom">
-                                Số điện thoại
-                            </label>
-                        </Form.Floating>
-                        <Form.Floating>
-                            <Form.Control
-                                id="floatingPasswordCustom"
-                                type="email"                         
-                                placeholder="email"
-                                name="email" value={formData.email} onChange={handleChange}
-                            />
-                            <label htmlFor="floatingPasswordCustom">
-                                Email
-                            </label>
-                        </Form.Floating>
-                        <Form.Floating>
-                            <Form.Control
-                                id="floatingPasswordCustom"
-                                type="text"                         
-                                placeholder="email"
-                                name="diaChi" value={formData.diaChi} onChange={handleChange}
-                            />
-                            <label htmlFor="floatingPasswordCustom">
-                            Địa chỉ
-                            </label>
-                        </Form.Floating>
-                        <button type="submit">Đăng Ký</button>
-                    </form>
+                <div className='admin-container-main'>
+                    <div className='admin-container-main-part1'>
+                        <h2 style={{ fontWeight: "bold" }}>Đăng Kí Tài Khoản cho Agency</h2>
+                        <form onSubmit={handleSubmit}>
+
+                            <Form.Floating>
+                                <Form.Control
+                                    id="floatingPasswordCustom"
+                                    type="text"
+                                    placeholder="Họ và Tên"
+                                    name="taiKhoan" // Đặt thuộc tính name
+                                    value={formData.taiKhoan}
+                                    onChange={handleChange}
+                                />
+                                <label htmlFor="floatingPasswordCustom">
+                                    Họ và Tên
+                                </label>
+                            </Form.Floating>
+                            <Form.Floating>
+                                <Form.Control
+                                    id="floatingPasswordCustom"
+                                    type="password"
+                                    name="matKhau"
+                                    placeholder="Mật khẩu"
+                                    value={formData.matKhau} onChange={handleChange}
+                                />
+                                <label htmlFor="floatingPasswordCustom">
+                                    Mật khẩu
+                                </label>
+                            </Form.Floating>
+
+                            <Form.Floating>
+                                <Form.Control
+                                    id="floatingPasswordCustom"
+                                    type="password"
+                                    placeholder="Mật khẩu"
+                                    name="xacNhanMatKhau" value={formData.xacNhanMatKhau} onChange={handleChange}
+                                />
+                                <label htmlFor="floatingPasswordCustom">
+                                    Xác nhận mật khẩu
+                                </label>
+                            </Form.Floating>
+
+                            <Form.Floating>
+                                <Form.Control
+                                    id="floatingPasswordCustom"
+                                    type="tel"
+                                    placeholder="Mật khẩu"
+                                    name="soDienThoai" value={formData.soDienThoai} onChange={handleChange}
+                                /><label htmlFor="floatingPasswordCustom">
+                                    Số điện thoại
+                                </label>
+                            </Form.Floating>
+                            <Form.Floating>
+                                <Form.Control
+                                    id="floatingPasswordCustom"
+                                    type="email"
+                                    placeholder="email"
+                                    name="email" value={formData.email} onChange={handleChange}
+                                />
+                                <label htmlFor="floatingPasswordCustom">
+                                    Email
+                                </label>
+                            </Form.Floating>
+                            <Form.Floating>
+                                <Form.Control
+                                    id="floatingPasswordCustom"
+                                    type="text"
+                                    placeholder="email"
+                                    name="diaChi" value={formData.diaChi} onChange={handleChange}
+                                />
+                                <label htmlFor="floatingPasswordCustom">
+                                    Địa chỉ
+                                </label>
+                            </Form.Floating>
+                            <button type="submit">Đăng Ký</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

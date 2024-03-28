@@ -3,7 +3,7 @@
     background-color: #212529;
     color: white;
     /* max-height: max-content; */
-    height: 919px;    /* padding: 20px; */
+    height: 1000px;    /* padding: 20px; */
     width: 340px; /* Điều chỉnh chiều rộng theo nhu cầu của bạn */
   }
   
@@ -53,7 +53,4 @@
     background: #359950;
     border-radius: 5px;
     padding-right: 10px;
-}
-.admin-all-account{
-    display: flex;
 }

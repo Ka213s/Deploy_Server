@@ -44,16 +44,18 @@ export default function AdminAllAccount() {
 
     return (
         <div className="admin-all-account">
+            <div>
             <Adminmenu
                 userLoginBasicInformationDto={userLoginBasicInformationDto}
-                UserMenu={UserAdmin}
-                
+                UserMenu={UserAdmin}             
             />
+            </div>
+            <div className='box-allaccount'>
             <div className="account-list">
                 <h2 className="account-list-title">Tất Cả Tài Khoản</h2>
                 <div className="role-filter">
                     <select className="role-filter-select" value={selectedRoleId} onChange={e => setSelectedRoleId(e.target.value)}>
-                        <option value="">All Roles</option>
+                        <option value="">Tất cả vai trò</option>
                         {roleData.map(role => (
                             <option key={role.id} value={role.id}>{role.roleName}</option>
                         ))}
@@ -85,6 +87,7 @@ export default function AdminAllAccount() {
                         ))}
                     </tbody>
                 </table>
+            </div>
             </div>
         </div>
     );

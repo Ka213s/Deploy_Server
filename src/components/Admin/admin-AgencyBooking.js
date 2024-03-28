@@ -47,7 +47,7 @@ export default function AdminAgencyBooking() {
 
 
     return (
-        <div className="admin-all-account">
+        <div className="">
         <Adminmenu
           userLoginBasicInformationDto={userLoginBasicInformationDto}
           UserMenu={UserAdmin}

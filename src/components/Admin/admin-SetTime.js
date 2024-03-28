@@ -121,7 +121,7 @@ export default function AdminSetTime() {
 
   return (
     <div>
-      <div className="admin-all-account">
+      <div className="">
         <Adminmenu
           userLoginBasicInformationDto={userLoginBasicInformationDto}
           UserMenu={UserAdmin}
