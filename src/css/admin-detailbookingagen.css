@@ -6,7 +6,7 @@
 
 .booking-item {
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
+    border: 2.real-estate-detail-containerpx solid #35CB6D;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
@@ -61,7 +61,8 @@
 }
 
 .approve-button {
-    background-color: #28a745;
+    background-color: rgb(53, 153, 80); 
+    border-radius: 8px;
     color: #fff;
 }
 

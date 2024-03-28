@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Adminmenu from "./admin-menu";
 import UserAdmin from '../../list/userIAdmin';
+import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
 export default function AdminCreaccountagency() {
     const userLoginBasicInformationDto = JSON.parse(localStorage.getItem('userLoginBasicInformationDto'));
     const [formData, setFormData] = useState({
@@ -79,30 +81,78 @@ export default function AdminCreaccountagency() {
                 <div>
                     <h2 style={{ fontWeight: "bold" }}>Đăng Kí Tài Khoản cho Agency</h2>
                     <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>Họ và Tên</label>
-                            <input type="text" name="taiKhoan" value={formData.taiKhoan} onChange={handleChange} />
-                        </div>
-                        <div>
-                            <label>Mật khẩu:</label>
-                            <input type="password" name="matKhau" value={formData.matKhau} onChange={handleChange} style={{ width: "100%" }} />
-                        </div>
-                        <div>
-                            <label>Xác nhận lại mật khẩu:</label>
-                            <input type="password" name="xacNhanMatKhau" value={formData.xacNhanMatKhau} onChange={handleChange} style={{ width: "100%" }} />
-                        </div>
-                        <div>
-                            <label>Số điện thoại:</label>
-                            <input type="text" name="soDienThoai" value={formData.soDienThoai} onChange={handleChange} />
-                        </div>
-                        <div>
-                            <label>Email:</label>
-                            <input type="email" name="email" value={formData.email} onChange={handleChange} style={{ width: "100%" }} />
-                        </div>
-                        <div>
-                            <label>Địa chỉ:</label>
-                            <input type="text" name="diaChi" value={formData.diaChi} onChange={handleChange} />
-                        </div>
+                
+                        <Form.Floating>
+                            <Form.Control
+                                id="floatingPasswordCustom"
+                                type="text"
+                                placeholder="Họ và Tên"
+                                name="taiKhoan" // Đặt thuộc tính name
+                                value={formData.taiKhoan}
+                                onChange={handleChange}
+                            />
+                            <label htmlFor="floatingPasswordCustom">
+                                Họ và Tên
+                            </label>
+                        </Form.Floating>
+                        <Form.Floating>
+                            <Form.Control
+                                id="floatingPasswordCustom"
+                                type="password"
+                                name="matKhau"
+                                placeholder="Mật khẩu"
+                                value={formData.matKhau} onChange={handleChange}
+                            />
+                            <label htmlFor="floatingPasswordCustom">
+                                Mật khẩu
+                            </label>
+                        </Form.Floating>
+
+                        <Form.Floating>
+                            <Form.Control
+                                id="floatingPasswordCustom"
+                                type="password"                         
+                                placeholder="Mật khẩu"
+                                name="xacNhanMatKhau" value={formData.xacNhanMatKhau} onChange={handleChange}
+                            />
+                            <label htmlFor="floatingPasswordCustom">
+                                Xác nhận mật khẩu
+                            </label>
+                        </Form.Floating>
+                
+                        <Form.Floating>
+                            <Form.Control
+                                id="floatingPasswordCustom"
+                                type="tel"                         
+                                placeholder="Mật khẩu"
+                                name="soDienThoai" value={formData.soDienThoai} onChange={handleChange}
+                            />
+                            <label htmlFor="floatingPasswordCustom">
+                                Số điện thoại
+                            </label>
+                        </Form.Floating>
+                        <Form.Floating>
+                            <Form.Control
+                                id="floatingPasswordCustom"
+                                type="email"                         
+                                placeholder="email"
+                                name="email" value={formData.email} onChange={handleChange}
+                            />
+                            <label htmlFor="floatingPasswordCustom">
+                                Email
+                            </label>
+                        </Form.Floating>
+                        <Form.Floating>
+                            <Form.Control
+                                id="floatingPasswordCustom"
+                                type="text"                         
+                                placeholder="email"
+                                name="diaChi" value={formData.diaChi} onChange={handleChange}
+                            />
+                            <label htmlFor="floatingPasswordCustom">
+                            Địa chỉ
+                            </label>
+                        </Form.Floating>
                         <button type="submit">Đăng Ký</button>
                     </form>
                 </div>

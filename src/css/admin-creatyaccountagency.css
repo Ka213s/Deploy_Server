@@ -1,4 +1,8 @@
 /* Định dạng chung */
+.resigter-agency{
+    background-color: red;
+    border: #35CB6D;
+}
 .custom-container {
     max-width: 456px;
     margin: -378px 300px;

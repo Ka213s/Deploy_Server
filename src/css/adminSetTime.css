@@ -15,14 +15,15 @@
 }
 
 .datepicker-container {
-  background-color: #f8f8f8; /* Màu nền nhẹ cho date picker */
+  margin-top: 10px;
+  background-color: #ffffff; /* Màu nền nhẹ cho date picker */
   padding: 15px;
   border-radius: 10px; /* Làm tròn góc */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Tạo bóng nhẹ */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.479); /* Tạo bóng nhẹ */
 }
 
 .time-buttons button {
-  background-color: #4CAF50; /* Màu nền cho nút */
+  background-color: #686868 ; /* Màu nền cho nút */
   color: white; /* Màu chữ cho nút */
   padding: 12px 24px; /* Khoảng cách giữa chữ và biên nút */
   margin: 10px; /* Khoảng cách giữa các nút */
@@ -33,7 +34,7 @@
 }
 
 .time-buttons button.selected {
-  background-color: orange; /* Màu nền cho nút khi được chọn */
+  background-color: #4CAF50; /* Màu nền cho nút khi được chọn */
 }
 
 .custom-button {

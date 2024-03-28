@@ -12,7 +12,13 @@ export default function Agencymenu({ userLoginBasicInformationDto, UserMenu, han
 
     return (
         <div className="admin-menu">
-            <span className="admin-menu__welcome">Chào mừng, {userLoginBasicInformationDto.username}!</span>
+            <a href='/admin-trangchu'>
+                <img  src={require('./logo-footer.png')} alt="" /> {/* xếp lại ảnh vào trong folder img bên src code chính */}
+            </a>
+            
+            <br/><br/>
+            <span style={{marginLeft:'30px'}} className="admin-menu__welcome">Chào mừng, {userLoginBasicInformationDto.username}!</span>
+            <hr></hr>
             <ul className="admin-menu__list">
                 {UserMenu.map(menuItem => (
                     <li key={menuItem.id} className="admin-menu__item">
