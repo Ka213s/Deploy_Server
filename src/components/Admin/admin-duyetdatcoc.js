@@ -45,22 +45,31 @@ export default function AdminDuyetdatcoc() {
 
     return (
         <div className="admin-all-account">
+            <div>
             <Adminmenu
                 userLoginBasicInformationDto={userLoginBasicInformationDto}
                 UserMenu={UserAdmin}
             />
-            <div>
-                <h2>Admin duyệt đặt cọc (hoặc bán)</h2>
+            </div>
+            <div className='box-allaccount'>
+                {/* <h2>Admin duyệt đặt cọc (hoặc bán)</h2> */}
+                <h2 style={{textAlign:'center'}}> Admin duyệt đặt cọc (hoặc bán)</h2>
+                {/* <hr style={{margin:'50px'}}></hr> */}
+                
                 <table>
                     <thead>
                         <tr>
+                            <th>STT</th>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>Tên khách hàng</th>
+                            <th>Agency</th>
+                            <th>Ngày cọc</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {realEstatesWithPerimeter.map(realEstate => (
+                        {realEstatesWithPerimeter.map((realEstate,index) => (
                             <tr key={realEstate.id}>
+                                <td>{index+1}</td>
                                 <td>{getRealEstateNameById(realEstate.id)}</td>
                                 <td onClick={() => handleRealEstateClick(realEstate.id)} style={{ cursor: 'pointer' }}>{getUsernameByCustomerId(parseInt(realEstate.perimeter))}</td>
 

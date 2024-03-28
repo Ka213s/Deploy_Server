@@ -1,60 +1,64 @@
-.new-container {
-    width: 90%;
-    margin: -380px 300px;
-    overflow: hidden;
-    /* border-radius: 15px; */
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
-}
-
-.new-container:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.20);
-}
-
-.new-table {
+.admin-AB-container {
+    display: flex;
     width: 100%;
+}
+
+.table-container {
+    width: 75%;
+    justify-content: center;
+    /* Center contents horizontally */
+    align-items: center;
+    /* Center contents vertically */
+}
+.custom-table {
+    width: 80%; /* Adjust as needed */
     border-collapse: collapse;
-    background-color: #ffffff;
+    border: 2px solid #359950; /* Đặt màu và độ dày viền bo khung */
+}
+.text-tongsodon{
+    margin-top: 20px;
+}
+.admin-DB-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.new-table thead {
-    background-color: #6c7ae0;
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.admin-DB-heading-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center; /* Align items horizontally */
+    margin-bottom: 20px; /* Adjust as needed */
 }
 
-.new-table thead th {
-    padding: 15px 10px;
-    cursor: pointer;
+.admin-DB-heading {
+    margin-top: 20px;
+    margin: 0; /* Reset margin */
 }
 
-.new-table thead th:hover {
-    background-color: #35CB6D;
+.admin-DB-button-container {
+
+    margin-left: auto; /* Push the button to the right */
+    margin-top: 20px; /* Adjust as needed */
+   margin-right: 5%;
 }
 
-.new-table tbody tr {
-    border-bottom: 1px solid #dddddd;
-    transition: background-color 0.3s ease;
-}
-
-.new-table tbody tr:last-child {
-    border-bottom: none;
-}
-
-.new-table tbody tr:hover {
-    background-color: #f5f7fa;
-}
-
-.new-table td {
-    padding: 15px 10px;
-    text-align: center;
-    color: #636363;
-    cursor: pointer;
-}
-
-.new-table td:hover {
-    background-color: #eaeef3;
+.admin-DB-button {
+font-weight: 600;
+    background-color: #359950;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Optional: Styles for the link */
+.admin-DB-button-link {
+    text-decoration: none;
+    color: inherit;
+}
+.admin-DB-table{
+    width: 90%;
 }

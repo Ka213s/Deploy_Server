@@ -35,16 +35,16 @@ export default function AdminSetTime() {
         console.error("Error at fetchData", error);
       }
     };
-    
+
     const fetchUpdatedData = async () => {
       while (true) {
-          await fetchData();
-          await new Promise(resolve => setTimeout(resolve, 0));
+        await fetchData();
+        await new Promise(resolve => setTimeout(resolve, 0));
       }
-  };
+    };
 
-  fetchData(); // Initial fetch
-  fetchUpdatedData(); // Start long polling
+    fetchData(); // Initial fetch
+    fetchUpdatedData(); // Start long polling
   }, []);
 
   useEffect(() => {
@@ -121,92 +121,119 @@ export default function AdminSetTime() {
 
   return (
     <div>
-      <div className="">
-        <Adminmenu
-          userLoginBasicInformationDto={userLoginBasicInformationDto}
-          UserMenu={UserAdmin}
-        />
+      <div className="admin-all-account">
         <div>
-          <h1> Thiết Lập Thời Gian Đặt Lịch</h1>
-          <div className="datepicker-container">
-            <DatePicker
-              selected={selectedDate}
-              onChange={date => setSelectedDate(date)}
-              dateFormat="yyyy-MM-dd"
-              minDate={new Date()} // Set minDate to today's date
-            />
-          </div>
-          <div className="time-buttons">
-            {timeSlots.map(slot => (
-              <button
-                key={slot.id}
-                className={selectedTimes.includes(slot.id) ? "selected" : ""}
-                onClick={() => handleTimeClick(slot.id)}
-              >
-                {slot.display}
-              </button>
-            ))}
-          </div>
-          <button onClick={handleSubmit} className="custom-button" style={{ color: "black" }}>Gửi thông tin</button>
+          <Adminmenu
+            userLoginBasicInformationDto={userLoginBasicInformationDto}
+            UserMenu={UserAdmin}
+          />
         </div>
-        <div>
-          <span>Hiển thị lịch đặt</span>
-          <span>Xem toàn bộ lịch đặt</span>
-          <span>Lọc ngày </span>
-          <div className="datepicker-container">
-            <DatePicker
-              selected={filteredDate}
-              onChange={date => setFilteredDate(date)}
-              dateFormat="yyyy-MM-dd"
-              minDate={new Date()} // Set minDate to today's date
-            />
-          </div>
-          <button onClick={handleShowAllReservations} className="custom-button" style={{ color: "black" }}>Hiện toàn bộ lịch đặt</button>
-          <table>
-            <thead>
-              <tr>
-                <th>Ngày</th>
-                <th>Khung giờ 1</th>
-                <th>Khung giờ 2</th>
-                <th>Khung giờ 3</th>
-                <th>Khung giờ 4</th>
-              </tr>
-            </thead>
-            <tbody>
-              {showAllReservations ? (
-                allReservations
-                  .filter(reservation => {
-                    if (!filteredDate) return true;
-                    return moment(reservation.date).isSame(filteredDate, 'day');
-                  })
-                  .map(reservation => (
-                    <tr key={reservation.id}>
-                      <td>{formatDate(reservation.date)}</td>
-                      <td>{reservation.time1}</td>
-                      <td>{reservation.time2}</td>
-                      <td>{reservation.time3}</td>
-                      <td>{reservation.time4}</td>
-                    </tr>
-                  ))
-              ) : (
-                allReservations
-                  .filter(reservation => {
-                    if (!filteredDate) return true;
-                    return moment(reservation.date).isSame(filteredDate, 'day');
-                  })
-                  .map(reservation => (
-                    <tr key={reservation.id}>
-                      <td>{formatDate(reservation.date)}</td>
-                      <td>{reservation.time1}</td>
-                      <td>{reservation.time2}</td>
-                      <td>{reservation.time3}</td>
-                      <td>{reservation.time4}</td>
-                    </tr>
-                  ))
-              )}
+        <div className='box-allaccount'>
+          <h2 style={{textAlign:'center'}}> Thiết Lập Thời Gian Đặt Lịch</h2>
 
-            </tbody>
-          </table>
+          <div className='setTime'>
+          <span>Chọn ngày </span>
+            <div className="datepicker-container">
+            
+              {/* <DatePicker style={{width:'100%'}}
+                selected={selectedDate}
+                onChange={date => setSelectedDate(date)}
+                dateFormat="yyyy-MM-dd"
+                minDate={new Date()} // Set minDate to today's date
+              /> */}
+              <DatePicker
+                      style={{height:'20px'}}
+                        selected={selectedDate}
+                        onChange={date => setSelectedDate(date)}
+                        dateFormat="yyyy-MM-dd"
+                        placeholderText="Chọn ngày"
+                        minDate={new Date()}
+                    />
+            </div>
+
+            <div className="time-buttons">
+              {timeSlots.map(slot => (
+                <button
+                  key={slot.id}
+                  className={selectedTimes.includes(slot.id) ? "selected" : ""}
+                  onClick={() => handleTimeClick(slot.id)}
+                >
+                  {slot.display}
+                </button>
+              ))}
+            </div>  
+            <button onClick={handleSubmit} className="custom-button" style={{ color: "black" }}>Gửi thông tin</button>
+          </div>
+          <hr style={{margin:'50px'}}></hr>
+          <div>
+            <h2 style={{textAlign:'center'}}> Thời gian đã thiết lập</h2>
+            <span>Chọn ngày </span>
+            <div className="datepicker-container">
+              {/* <DatePicker
+                selected={filteredDate}
+                onChange={date => setFilteredDate(date)}
+                dateFormat="yyyy-MM-dd"
+                minDate={new Date()} // Set minDate to today's date
+              /> */}
+              
+              <DatePicker
+                        selected={selectedDate}
+                        onChange={date => setFilteredDate(date)}
+                        dateFormat="yyyy-MM-dd"
+                        placeholderText="Chọn ngày"
+                        minDate={new Date()}
+                    />
+            </div>
+            <button onClick={handleShowAllReservations} className="custom-button" style={{ color: "black" }}>Hiện toàn bộ lịch đặt</button>
+            <table>
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Ngày</th>
+                  <th>Khung giờ 1</th>
+                  <th>Khung giờ 2</th>
+                  <th>Khung giờ 3</th>
+                  <th>Khung giờ 4</th>
+                </tr>
+              </thead>
+              <tbody>
+                {showAllReservations ? (
+                  allReservations
+                    .filter(reservation => {
+                      if (!filteredDate) return true;
+                      return moment(reservation.date).isSame(filteredDate, 'day');
+                    })
+                    .map((reservation,index) => (
+                      <tr key={reservation.id}>
+                        <td>{index+1}</td>
+                        <td>{formatDate(reservation.date)}</td>
+                        <td>{reservation.time1}</td>
+                        <td>{reservation.time2}</td>
+                        <td>{reservation.time3}</td>
+                        <td>{reservation.time4}</td>
+                      </tr>
+                    ))
+                ) : (
+                  allReservations
+                    .filter(reservation => {
+                      if (!filteredDate) return true;
+                      return moment(reservation.date).isSame(filteredDate, 'day');
+                    })
+                    .map((reservation,index)  => (
+                      <tr key={reservation.id}>
+                        <td>{index+1}</td>
+                        <td>{formatDate(reservation.date)}</td>
+                        <td>{reservation.time1}</td>
+                        <td>{reservation.time2}</td>
+                        <td>{reservation.time3}</td>
+                        <td>{reservation.time4}</td>
+                      </tr>
+                    ))
+                )}
+
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
       <ToastContainer />

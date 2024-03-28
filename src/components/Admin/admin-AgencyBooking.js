@@ -47,29 +47,36 @@ export default function AdminAgencyBooking() {
 
 
     return (
-        <div className="">
-        <Adminmenu
-          userLoginBasicInformationDto={userLoginBasicInformationDto}
-          UserMenu={UserAdmin}
-        />
-            <table class="new-table">
-                <thead>
-                    <tr>
-                        <th>Agency ID</th>
-                        <th>Agency Name</th>
-                        <th>Số đơn được booking</th> {/* Đã loại bỏ onClick event */}
-                    </tr>
-                </thead>
-                <tbody>
-                    {agencyAccounts.map((agency, index) => (
-                        <tr key={index}>
-                          <td onClick={() => handleBookingClick(agency.id)} style={{ cursor: 'pointer' }}>{agency.id}</td> {/* Sửa đổi tại đây */}
-                            <td onClick={() => handleBookingClick(agency.id)} style={{ cursor: 'pointer' }}>{agency.username}</td> {/* Sửa đổi tại đây */}
-                            <td onClick={() => handleBookingClick(agency.id)} style={{ cursor: 'pointer' }}>{agency.bookingCount}</td> {/* Sửa đổi tại đây */}
+        <div className='admin-AB-container'>
+            <div className=''>
+                <Adminmenu
+                    userLoginBasicInformationDto={userLoginBasicInformationDto}
+                    UserMenu={UserAdmin}
+                />
+            </div>
+            <div className='table-container'>
+                <h1 className='text-tongsodon'>Tổng số đơn đặt của Agency</h1>
+                <table className="custom-table" >
+                    <thead style={{textAlign:'center'}}>
+                        <tr>
+                            <th style={{ width: '10%' }}>STT</th>
+                            <th style={{ width: '20%' }}>Agency ID</th>
+                            <th style={{ width: '10%' }}>Tên Agency</th>
+                            <th style={{ width: '20%' }}>Số đơn được booking</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {agencyAccounts.map((agency, index) => (
+                            <tr key={index}>
+                                <td>{index+1}</td>
+                                <td onClick={() => handleBookingClick(agency.id)} style={{ cursor: 'pointer', width: '20%' }}>{agency.id}</td>
+                                <td onClick={() => handleBookingClick(agency.id)} style={{ cursor: 'pointer', width: '40%' }}>{agency.username}</td>
+                                <td onClick={() => handleBookingClick(agency.id)} style={{ cursor: 'pointer', width: '40%' }}>{agency.bookingCount}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

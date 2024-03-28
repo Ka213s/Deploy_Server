@@ -169,7 +169,8 @@ export default function Agencyduyettindang() {
         />
             <div className='container'>
                 <div className='col-md-9 danhsachbdscanduyet'>
-                    <h1>Danh sách bất động sản cần được duyệt</h1>
+                    
+                    <h2 style={{textAlign:'center'}}> Danh sách bất động sản cần được duyệt</h2>
                     <input
                         type="text"
                         placeholder="Nhập tên bất động sản để lọc"

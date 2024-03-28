@@ -108,11 +108,14 @@ export default function AdminDepositCustomer() {
 
     return (
         <div className="admin-all-account">
-            <Adminmenu
-                userLoginBasicInformationDto={userLoginBasicInformationDto}
-                UserMenu={UserAdmin}
-            />
             <div>
+                <Adminmenu
+                    userLoginBasicInformationDto={userLoginBasicInformationDto}
+                    UserMenu={UserAdmin}
+                />
+            </div>
+            <div className='box-allaccount'>
+                <h2 style={{textAlign:'center'}}> Chọn ngày kiểm tra khách hàng đặt cọc</h2>
                 <div style={{ marginBottom: '10px' }}>
                     Chọn ngày kiểm tra khách hàng đặt cọc: &nbsp;
                     <DatePicker
@@ -121,7 +124,7 @@ export default function AdminDepositCustomer() {
                         dateFormat="dd/MM/yyyy"
                         placeholderText="Chọn ngày"
                     />
-                
+
                 </div>
 
                 {showFilter && (
@@ -133,6 +136,7 @@ export default function AdminDepositCustomer() {
                 <table>
                     <thead>
                         <tr>
+                            <th>STT</th>
                             <th>Thời gian</th>
                             <th>Số khách hàng xem đơn</th>
                         </tr>
@@ -143,6 +147,7 @@ export default function AdminDepositCustomer() {
                                 {['time1', 'time2', 'time3', 'time4'].map((timeSlot, idx) => (
                                     reservation[timeSlot] !== null && (
                                         <tr key={`${index}-${idx}`}>
+                                            <td>{index+1}</td>
                                             <td>{reservation[timeSlot]}</td>
                                             <td onClick={() => handleNavigate(reservation[timeSlot], selectedDate)}>
                                                 {reservation[`${timeSlot}_count`] || 0}
@@ -154,29 +159,33 @@ export default function AdminDepositCustomer() {
                         ))}
                     </tbody>
                 </table>
-            </div>
-            <div>
-                <span>Danh Sách Chờ Khách Hàng Cần Phân Phối Agency</span>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Tên Khách Hàng</th>
-                            <th>Booking Date</th>
-                            <th>Booking Time</th>
-                            <th>Trạng thái</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredCustomers.map((reservation, index) => (
-                            <tr key={index}>
-                                <td>{getUsernameByCustomerId(reservation.customerId)}</td>
-                                <td>{formatDate(reservation.bookingDate)}</td>
-                                <td>{reservation.bookingTime}</td>
-                                <td>{reservation.status === 1 ? 'Đang chờ phân phối người dẫn xem' : reservation.status}</td>
+
+                <hr style={{margin:'50px'}}></hr>
+                <div>
+                    <span></span>
+                    <h2 style={{textAlign:'center'}}>Danh Sách Chờ Khách Hàng Cần Phân Phối Agency</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên Khách Hàng</th>
+                                <th>Ngày đặt</th>
+                                <th>Giờ đặt</th>
+                                <th>Trạng thái</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {filteredCustomers.map((reservation, index) => (
+                                <tr key={index}>
+                                    <td>{getUsernameByCustomerId(reservation.customerId)}</td>
+                                    <td>{formatDate(reservation.bookingDate)}</td>
+                                    <td>{reservation.bookingTime}</td>
+                                    <td>{reservation.status === 1 ? 'Đang chờ phân phối người dẫn xem' : reservation.status}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

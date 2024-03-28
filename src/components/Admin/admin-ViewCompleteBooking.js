@@ -47,15 +47,18 @@ export default function AdminViewCompleteBooking() {
     };
     return (
         <div className="admin-all-account">
-            <Adminmenu
-                userLoginBasicInformationDto={userLoginBasicInformationDto}
-                UserMenu={UserAdmin}
-            />
             <div>
+                <Adminmenu
+                    userLoginBasicInformationDto={userLoginBasicInformationDto}
+                    UserMenu={UserAdmin}
+                />
+            </div>
+            <div className='box-allaccount'>
                 <h1 style={{ fontSize: '30px' }}>Danh Sách Đã Hoàn Thành Dẫn Đi Xem</h1>
-                <table className='thongtindanhsach'>
+                <table className=''>
                     <thead>
                         <tr>
+                            <th>STT</th>
                             <th>Tên bất động sản</th>
                             <th>Tên khách hàng</th>
                             <th>Ngày xem</th>
@@ -64,8 +67,9 @@ export default function AdminViewCompleteBooking() {
                         </tr>
                     </thead>
                     <tbody>
-                        {CompleteRes.map(res => (
+                        {CompleteRes.map((res,index) => (
                             <tr key={res.id}>
+                                <td>{index+1}</td>
                                 <td>{getRealEstateNameById(res.realEstateId)}</td>
                                 <td>{getUsernameByCustomerId(res.customerId)}</td>
                                 <td>{formatDate(res.bookingDate)}</td>
